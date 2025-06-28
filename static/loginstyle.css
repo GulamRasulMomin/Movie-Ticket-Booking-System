@@ -1,0 +1,28 @@
+body{
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, red, orange);
+}
+.btn-primary {
+    background-color: red; /* Bright green button */
+    border-color: red;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: red;
+    border-color: red;
+}
+a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    text-align:center;
+}
+
+a:hover {
+    color:white;
+    text-decoration: none;
+
+}

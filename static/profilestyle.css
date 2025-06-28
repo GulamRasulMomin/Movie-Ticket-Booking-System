@@ -1,0 +1,138 @@
+/* Navbar styles */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #333;
+}
+
+.nav-link:hover {
+    color: #ff0000;
+}
+
+
+/* Carousel styles */
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    padding: 20px;
+    border-radius: 10px;
+    bottom: 20%;
+}
+
+
+/* Movie card styles */
+.movie-card {
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.section-title {
+    border-left: 4px solid #ff0000;
+    padding-left: 10px;
+    margin: 30px 0;
+}
+
+
+/* Login modal styles */
+.btn-login {
+    background-color: #ff0000;
+    color: #333;
+    border: none;
+    margin-left: 10px;
+}
+
+.btn-login:hover {
+    background-color: orange;
+    color: #333;
+}
+
+.modal-step {
+    display: none;
+}
+
+.modal-step.active {
+    display: block;
+}
+
+.btn-light:hover {
+    background-color: #f8f9fa;
+    border-color: #ddd;
+}
+
+
+/* Offer section */
+.offers-section {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.offer-card {
+    margin-bottom: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+
+.offer-card img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+
+body { 
+    font-family: Arial, sans-serif; background: #f5f5f5; 
+}
+
+.profile-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: skyblue;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.profile-info {
+    margin-bottom: 16px;
+}
+
+.profile-info label {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.profile-info span {
+    margin-bottom: 8px;
+}
+
+.edit-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.edit-btn:hover {
+    background: #0056b3;
+}

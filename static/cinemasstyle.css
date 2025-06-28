@@ -1,0 +1,22 @@
+/* Navbar styles */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.navbar-brand {
+    color: #ff0000;
+    font-weight: bold;
+}
+.nav-link {
+    color: #333;
+}
+.nav-link:hover {
+    color: #ff0000 !important;
+}
+body {
+    background-color: #f4f4f4;
+}
+.cinema-image {
+    max-height: 200px;
+    width: 90%;
+}

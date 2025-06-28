@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Ticket Booking</title>
+    <!--Google Fonts and Icons-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    
+  <link rel="stylesheet" href="/static/sitmatrixstyle.css">
+</head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+          <a class="navbar-brand" href="#">BookMyShow</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'cinemas' %}">Cinemas</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'booking_history' %}">Booking History</a>
+                  </li>
+                  <li class="nav-item">
+                        <a style="border-radius: 20px;background-color: red;position: relative;left: 600px;" class="nav-link text-light" href="{% url 'profile' %}">Profile</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+    <form method="post" class="center">
+      <div class="center">
+        <div class="tickets">
+          <div class="ticket-selector">
+            <div class="head">
+              <div class="title">{{movie.title}}</div>
+            </div>
+            <div class="timings">
+              <div class="dates">
+                <input type="radio" name="date" id="12-3-2025-friday" value="12-3-2025-friday" checked>
+                <label for="12-3-2025-friday" class="dates-item" onclick="change_sitmatrix('12-3-2025-friday', '{{time}}')">
+                  <div class="day">Fri</div>
+                  <div class="date">12</div>
+                </label>
+                <input type="radio" name="date" id="13-3-2025-saturday" value="13-3-2025-saturday">
+                <label for="13-3-2025-saturday" class="dates-item" onclick="change_sitmatrix('13-3-2025-saturday', '{{time}}')">
+                  <div class="day">Sat</div>
+                  <div class="date">13</div>
+                </label>
+                <input type="radio" name="date" id="14-3-2025-sunday" value="14-3-2025-sunday">
+                <label for="14-3-2025-sunday" class="dates-item" onclick="change_sitmatrix('14-3-2025-sunday', '{{time}}')">
+                  <div class="day">Sun</div>
+                  <div class="date">14</div>
+                </label>
+                <input type="radio" name="date" id="15-3-2025-monday" value="15-3-2025-monday">
+                <label for="15-3-2025-monday" class="dates-item" onclick="change_sitmatrix('15-3-2025-monday', '{{time}}')">
+                  <div class="day">Mon</div>
+                  <div class="date">15</div>
+                </label>
+                <input type="radio" name="date" id="16-3-2025-tuesday" value="16-3-2025-tuesday">
+                <label for="16-3-2025-tuesday" class="dates-item" onclick="change_sitmatrix('16-3-2025-tuesday', '{{time}}')">
+                  <div class="day">Tue</div>
+                  <div class="date">16</div>
+                </label>
+                <input type="radio" name="date" id="17-3-2025-wednesday" value="17-3-2025-wednesday">
+                <label for="17-3-2025-wednesday" class="dates-item" onclick="change_sitmatrix('17-3-2025-wednesday', '{{time}}')">
+                  <div class="day">Wed</div>
+                  <div class="date">17</div>
+                </label>
+                <input type="radio" name="date" id="18-3-2025-thursday" value="18-3-2025-thursday">
+                <label for="18-3-2025-thursday" class="dates-item" onclick="change_sitmatrix('18-3-2025-thursday', '{{time}}')">
+                  <div class="day">Thu</div>
+                  <div class="date">18</div>
+                </label>
+              </div>
+              <div class="times">
+                <input type="radio" name="time" id="11:00" value="11:00" checked>
+                <label for="11:00" class="time" onclick="change_sitmatrix('{{date}}', '11:00')">11:00</label>
+                <input type="radio" name="time" id="14:30" value="14:30">
+                <label for="14:30" class="time" onclick="change_sitmatrix('{{date}}', '14:30')">14:30</label>
+                <input type="radio" name="time" id="18:00" value="18:00">
+                <label for="18:00" class="time" onclick="change_sitmatrix('{{date}}', '18:00')">18:00</label>
+                <input type="radio" name="time" id="21:30" value="21:30">
+                <label for="21:30" class="time" onclick="change_sitmatrix('{{date}}', '21:30')">21:30</label>
+              </div>
+            </div>
+            <div class="seats">
+              <div class="status">
+                <div class="item">Available</div>
+                <div class="item">Booked</div>
+                <div class="item">Selected</div>
+              </div>
+              <div class="all-seats d-flex">
+                <div>
+                  {% csrf_token %}
+                  {% for i in total_seats %}
+                    {% if i in seats %}
+                      <input type="checkbox" value="{{i}}" name="tickets" id="s{{i}}" disabled/>
+                      <label for="s{{i}}" class="seat booked"></label>
+                    {% else %}
+                      <input type="checkbox" value="{{i}}" name="tickets" id="s{{i}}" onclick="countTickets()" />
+                      <label for="s{{i}}" class="seat"></label>
+                    {% endif %}
+                  {% endfor %}
+                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="price">
+            <div class="total">
+              <span> <span class="count">0</span> Tickets </span>
+              <div class="amount">0</div>
+            </div>
+            <button type="submit">Book</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <script>
+      function countTickets() {
+        const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+        document.querySelector('.count').textContent = checked.length;
+        document.querySelector('.amount').textContent = checked.length * 100;
+      }
+
+      function change_sitmatrix(c_date, c_time){
+        const url = "{% url 'sitmatrix' cinema.id movie.id 'DATE_PLACEHOLDER' 'TIME_PLACEHOLDER' %}";
+        window.location.href = url.replace('DATE_PLACEHOLDER', c_date).replace('TIME_PLACEHOLDER', c_time);
+      }
+
+      document.getElementById("{{date}}").checked = true;
+      document.getElementById("{{time}}").checked = true;
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!-- book.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieBox - Book Your Shows</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/bookstyle.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">BookMyShow</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cinemas' %}">Cinemas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'booking_history' %}">Booking History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="border-radius: 20px;background-color: red;position: relative;left: 600px;" class="nav-link text-light" href="{% url 'profile' %}">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Movie Box Section -->
+    <div class="container-fluid mx-auto my-4 container-fluid-box">
+        <div class="movie-content">
+            <!-- Video on Left -->
+            <div class="video-container">
+                <iframe width="1026" height="546" src="{{movie.trailer}}" title="{{movie.title}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <!-- Title & Book Button on Right -->
+            <div class="movie-details">
+                <h2 class="movie-title">{{movie.title}}</h2>
+                <button class="btn btn-book"><a style="text-decoration: none;color: white;" href="{% url 'sitmatrix' cinema.id movie.id %}">Book Now</a></button>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

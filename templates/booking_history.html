@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>booking history</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/booking_historystyle.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">BookMyShow</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cinemas' %}">Cinemas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: red !important;" href="{% url 'booking_history' %}">Booking History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="border-radius: 20px;background-color: red;position: relative;left: 600px;" class="nav-link text-light" href="{% url 'profile' %}">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h1 style="text-align: center; margin-top: 20px;">Booking History</h1>
+    {% for booking in bookings %}
+
+    <div class="ticket" id="a1">        
+        <div class="ticket-left">
+            <img src="/{{booking.screening.movie.movie_poster}}" alt="{{booking.screening.movie.title}}" class="movie-poster">
+        </div>
+        <div class="ticket-right">
+            <h2 class="movie-name">{{booking.screening.movie.title}}</h2>
+            <div style="display: flex;">
+                <div style="width: 50%; border-right: 1px dashed black; margin-right: 2px;">
+                    <p class="user-name"><strong>User:</strong> {{booking.user.username}}</p>
+                    <p><strong>Genre:</strong> {{booking.screening.movie.genre}}</p>
+                    <p><strong>Date:</strong> {{booking.screening.date}}</p>
+                    <p><strong>Time:</strong> {{booking.screening.time}}</p>
+                    <p><strong>Seats:</strong> {% for seat in booking.seats %}{{seat}}, {% endfor %}</p>
+                </div>
+                <div style="width: 50%; margin-left: 20px;">
+                    <p><strong>Total Seats:</strong> {{booking.seats|length}}</p>
+                    <p class="price"><strong>Total Price:</strong> {{booking.total_price}}</p>
+                    <p><strong>Cinema:</strong> {{booking.screening.cinema.name}}</p>
+                    <p><strong>Location:</strong> {{booking.screening.cinema.location}}</p>
+                </div>
+            </div>           
+        </div>
+    </div>
+
+    {% empty %}
+        <h2>No booking history</h2>
+    {% endfor %}
+</body>
+</html>

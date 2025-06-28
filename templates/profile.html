@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/static/profilestyle.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">BookMyShow</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cinemas' %}">Cinemas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'booking_history' %}">Booking History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="border-radius: 20px;background-color: red;position: relative;left: 600px;" class="nav-link text-light" href="{% url 'profile' %}">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="profile-container">
+        <div class="profile-info">
+            <label for="username">Username:</label>
+            <span id="username">{{ user.username }}</span>
+        </div>
+        <div class="profile-info">
+            <label for="email">Email:</label>
+            <span id="email">{{ user.email }}</span>
+        </div>
+        <div class="profile-info">
+            <label for="mobile">Mobile No :</label>
+            <span id="mobile">{{ user.phone }}</span>
+        </div>
+    </div>
+</body>
+</html>
